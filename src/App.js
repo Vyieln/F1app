@@ -15,7 +15,7 @@ function App() {
   }, [])
 
   const getData = (Info) => {
-    const ENDPOINT = `http://ergast.com/api/f1/${Info.year}/${Info.race}/results.json`
+    const ENDPOINT = `https://ergast.com/api/f1/${Info.year}/${Info.race}/results.json`
     axios(ENDPOINT).then(response => {
       setIsLoading(false);
       console.log('te')
