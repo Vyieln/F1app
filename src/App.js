@@ -81,11 +81,6 @@ function App() {
       <p> Name: {infoDriver.givenName} {infoDriver.familyName} </p>
      <DisplayCaro />
       <p> Location: {infoTrack.circuitName} </p>
-    {
-      for (i = ; i<10; i++) {
-        
-      })
-    }
       <p> Qualifying {infoQual.Q1} </p>
       <SearchInfo onAdd={getData} onAnswer={() => setShowData(!showData)}/> 
       {/* <h1> <DisplayDatas /> </h1> */}
