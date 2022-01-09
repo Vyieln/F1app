@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 
-const SearchInfo = ({ onAdd }) => {
+const SearchInfo = ({ onAdd, onAnswer }) => {
     const[race, setRace] = useState('')
     const[year, setYear] = useState('')
 
@@ -29,7 +29,7 @@ const SearchInfo = ({ onAdd }) => {
                     <input type='text' placeholder='Enter Year' value={year} onChange={(e) => setYear(e.target.value) } />
                 </div>
                 
-                <input type='submit' value='Save Answer' className='' />
+                <input type='submit' value='Save Answer' className='' onClick={onAnswer} />
 
             </form>
     )
