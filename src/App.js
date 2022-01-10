@@ -23,7 +23,7 @@ function App() {
   const getData = (Info) => {
 
     const ENDPOINT = `https://ergast.com/api/f1/${Info.year}/${Info.race}/results.json`
-    const QENDPOINT = `http://ergast.com/api/f1/${Info.year}/${Info.race}/qualifying.json`
+    const QENDPOINT = `https://ergast.com/api/f1/${Info.year}/${Info.race}/qualifying.json`
     const Profile = axios.get(ENDPOINT)
     const Qualifying = axios.get(QENDPOINT)
 
