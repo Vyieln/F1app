@@ -21,11 +21,11 @@ const SearchInfo = ({ onAdd, onAnswer }) => {
     return (
             <form className='add-form' onSubmit={onSubmit}>
                 <div className='form-control'>
-                    <label> Race </label>
+                    <label> Race :</label>
                     <input type='text' placeholder='Enter Race' value={race} onChange={(e) => setRace(e.target.value) } />
                 </div>
                 <div className='form-control'>
-                    <label> Year </label>
+                    <label> Year : </label>
                     <input type='text' placeholder='Enter Year' value={year} onChange={(e) => setYear(e.target.value) } />
                 </div>
                 

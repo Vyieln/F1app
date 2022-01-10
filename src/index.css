@@ -44,3 +44,9 @@
   background-color: green;
   color: white;
 }
+
+.center {
+  margin: auto;
+  width: 35%;
+  padding: 10px;
+}

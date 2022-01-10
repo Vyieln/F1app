@@ -3,6 +3,7 @@ import './index.css';
 import { useState, useEffect, useLayoutEffect } from 'react'
 import axios from 'axios'
 import CarouselApp from './components/CarouselApp';
+import Panel from './components/Panel';
 
 
 
@@ -12,6 +13,7 @@ function App() {
   const [infoTrack, setInfoTrack] = useState([]);
   const [infoQual, setInfoQual] = useState([])
   const [showData, setShowData] = useState(false)
+  const [infoFastest, setinfoFastest] = useState([])
   
   
   useEffect(() => {
@@ -35,6 +37,7 @@ function App() {
       if (response[0].data) {
         setInfoTrack(response[0].data.MRData.RaceTable.Races[0].Circuit)
         setInfoDriver(response[0].data.MRData.RaceTable.Races[0].Results[0].Driver)
+        setinfoFastest(response[0].data.MRData.RaceTable.Races[0].Results[0].FastestLap)
       } else {
         console.log("An error happened")
       }
@@ -50,41 +53,51 @@ function App() {
       console.log('An error happened', error)
     })
   }
-  const Name = infoDriver.givenName
-  const ArrayEx = [infoDriver.givenName, infoDriver.driverId]
 
-  console.log(ArrayEx)
-  const Datas = JSON.stringify(infoDriver)
-  const Data = JSON.parse(Datas)
-  console.log(Data)
+  // Created an Array called ArrayEx to pass through the Carousel component with data from the GET API
+  const Name = infoDriver.givenName
+  const DriverArr = [infoTrack, infoDriver, infoQual, infoFastest]
+
  
   const DisplayCaro = () => {
     if (isLoading === false){
-        return <CarouselApp DriverName={ArrayEx} />
+        return <CarouselApp DriverName={DriverArr} />
+
   } else {
-    return <p> nothing </p>
+    return <p> </p>
   }
+}
+
+  
+  const DisplayPan = () => {
+    if (isLoading === false){
+        return <Panel DriverName={DriverArr} />
+
+  } else {
+    return <p> </p>
   }
-  const DisplayDatas = () => {
-    return {Name}
   }
 
   const content = isLoading ? infoDriver : infoDriver
-  const Text = "hello"
+ 
   return (
     
     <div className="container">
       
-      <h1> F1 Info App {Text} </h1>
+      <h1> F1 Info App</h1>
   <div className="container">
-      {showData && <p> Name: {infoDriver.givenName} {infoDriver.familyName} </p>}
-      <p> Name: {infoDriver.givenName} {infoDriver.familyName} </p>
-     <DisplayCaro />
-      <p> Location: {infoTrack.circuitName} </p>
-      <p> Qualifying {infoQual.Q1} </p>
+
+      {/* {showData && <p> Name: {infoDriver.givenName} {infoDriver.familyName} </p>}
+      <p> Name: {infoDriver.givenName} {infoDriver.familyName} </p> */}
+     
+      {/* <DisplayCaro /> */}
+      <DisplayPan />
+      {/* <p> Location: {infoTrack.circuitName} </p>
+      <p> Qualifying {infoQual.Q1} </p> */}
+
       <SearchInfo onAdd={getData} onAnswer={() => setShowData(!showData)}/> 
-      {/* <h1> <DisplayDatas /> </h1> */}
-      {/* <CarouselApp DriverData={content} RaceData={infoQual} Dataget={getData}/> */}
+     
+  
       </div>
     </div>
   );
