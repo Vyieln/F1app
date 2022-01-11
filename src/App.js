@@ -36,7 +36,7 @@ function App() {
       
       if (response[0].data) {
         setInfoTrack(response[0].data.MRData.RaceTable.Races[0].Circuit)
-        setInfoDriver(response[0].data.MRData.RaceTable.Races[0].Results[0].Driver)
+        setInfoDriver(response[0].data.MRData.RaceTable.Races[0].Results[0])
         setinfoFastest(response[0].data.MRData.RaceTable.Races[0].Results[0].FastestLap)
       } else {
         console.log("An error happened")
