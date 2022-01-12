@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Container, Row, Col } from 'react-bootstrap'
 
 
 const SearchInfo = ({ onAdd, onAnswer }) => {
@@ -20,17 +21,23 @@ const SearchInfo = ({ onAdd, onAnswer }) => {
 
     return (
             <form className='add-form' onSubmit={onSubmit}>
-                <div className='form-control'>
+                <Container id="Inner">
+                    <Row>
+                    <Col></Col>
+                    <Col>
+                <div className='form-control w-20 p-5'>
                     <label> Race :</label>
                     <input type='text' placeholder='Enter Race' value={race} onChange={(e) => setRace(e.target.value) } />
-                </div>
-                <div className='form-control'>
+                    <p></p>
                     <label> Year : </label>
                     <input type='text' placeholder='Enter Year' value={year} onChange={(e) => setYear(e.target.value) } />
                 </div>
-                
-                <input type='submit' value='Save Answer' className='' onClick={onAnswer} />
 
+                <input type='submit' value='Save Answer' className='' onClick={onAnswer} />
+                </Col>
+                <Col></Col>
+                </Row>
+                </Container>
             </form>
     )
 }

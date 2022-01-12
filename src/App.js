@@ -4,7 +4,7 @@ import { useState, useEffect, useLayoutEffect } from 'react'
 import axios from 'axios'
 import CarouselApp from './components/CarouselApp';
 import Panel from './components/Panel';
-
+import { Container, Row, Col } from 'react-bootstrap'
 
 
 function App() {
@@ -14,6 +14,7 @@ function App() {
   const [infoQual, setInfoQual] = useState([])
   const [showData, setShowData] = useState(false)
   const [infoFastest, setinfoFastest] = useState([])
+  const [move, setMove] = useState(false)
   
   
   useEffect(() => {
@@ -57,8 +58,11 @@ function App() {
   // Created an Array called ArrayEx to pass through the Carousel component with data from the GET API
   const Name = infoDriver.givenName
   const DriverArr = [infoTrack, infoDriver, infoQual, infoFastest]
-
  
+ 
+  //scrapper
+
+
   const DisplayCaro = () => {
     if (isLoading === false){
         return <CarouselApp DriverName={DriverArr} />
@@ -82,23 +86,21 @@ function App() {
  
   return (
     
-    <div className="container">
+    <div className="containers">
       
-      <h1> F1 Info App</h1>
-  <div className="container">
-
-      {/* {showData && <p> Name: {infoDriver.givenName} {infoDriver.familyName} </p>}
-      <p> Name: {infoDriver.givenName} {infoDriver.familyName} </p> */}
+      <h1> F1nfo</h1>
+ 
+      <Container>
+    {}
+  <Row>
+    <Col>{!isLoading && <SearchInfo onAdd={getData} onAnswer={() => setShowData(!showData)}/>} </Col>
+    <Col>{isLoading && <SearchInfo onAdd={getData} onAnswer={() => setShowData(!showData)}/>} </Col>
+    <Col>  <DisplayPan /></Col>
+  </Row>
+</Container>
      
-      {/* <DisplayCaro /> */}
-      <DisplayPan />
-      {/* <p> Location: {infoTrack.circuitName} </p>
-      <p> Qualifying {infoQual.Q1} </p> */}
-
-      <SearchInfo onAdd={getData} onAnswer={() => setShowData(!showData)}/> 
      
-  
-      </div>
+   
     </div>
   );
 }

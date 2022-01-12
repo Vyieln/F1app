@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
-.container {
-  max-width: 500px;
+.containers {
+  max-width: 1000px;
   margin: 30px auto;
   overflow: auto;
   min-height: 300px;
@@ -45,8 +45,13 @@
   color: white;
 }
 
-.center {
-  margin: auto;
-  width: 35%;
-  padding: 10px;
+#Inner {
+  max-width: 500px;
+  margin: 30px auto;
+  overflow: auto;
+  min-height: 300px;
+  
+  padding: 30px;
+  border-radius: 5px;
+  text-align: center;
 }

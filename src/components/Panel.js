@@ -3,13 +3,14 @@ import { Card , Button, Tab, Tabs} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Panel = ( {DriverName} ) => {
-    const [Photo,setPhoto] = useState('https://e7.pngegg.com/pngimages/981/645/png-clipart-default-profile-united-states-computer-icons-desktop-free-high-quality-person-icon-miscellaneous-silhouette-thumbnail.png')
+    const [Photo, setPhoto] = useState('https://e7.pngegg.com/pngimages/981/645/png-clipart-default-profile-united-states-computer-icons-desktop-free-high-quality-person-icon-miscellaneous-silhouette-thumbnail.png')
 
     const EnterData = () => {
         if (DriverName[3].Time.time){
             return <p></p>
         }
     }
+
     const nameF = `${DriverName[1].Driver.givenName}`.slice(0,3)
     const nameL = `${DriverName[1].Driver.code}`
     const nameFsingle = nameF.slice(0,1)
@@ -22,7 +23,7 @@ const Panel = ( {DriverName} ) => {
     const link = `https://www.formula1.com/content/dam/fom-website/drivers/${nameFsingle}/${nameFUPPER}${nameL}01_${DriverName[1].Driver.givenName}_${DriverName[1].Driver.familyName}/${nameFlower}${nameLlower}01.png.transform/2col/image.png`
     return (
      
-        <div className="center">
+        <div className="">
           
               {console.log(DriverName)}
             {/* <p>Name: {DriverName[1].givenName} <br></br>{DriverName[1].familyName} </p>  */}
@@ -54,14 +55,7 @@ const Panel = ( {DriverName} ) => {
     {/* <Sonnet /> */}
   </Tab>
 </Tabs>
-  {/* <Card.Body>
-    <Card.Title>Card Title</Card.Title>
-    <Card.Text>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
-    </Card.Text>
-    <Button variant="primary">Go somewhere</Button>
-  </Card.Body> */}
+
 </Card>
         </div>
     )
